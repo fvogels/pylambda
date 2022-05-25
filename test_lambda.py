@@ -113,3 +113,17 @@ def test_eq(a, b):
     y = from_int(b)
     z = eq(x)(y)
     assert to_bool(z) == (a == b)
+
+
+@pytest.mark.parametrize("a", [2, 3, 5, 7, 11, 13, 17, 19, 23, 29])
+def test_is_prime(a):
+    x = from_int(a)
+    z = is_prime(x)
+    assert to_bool(z) == True
+
+
+@pytest.mark.parametrize("a", [0, 1, 4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20, 21, 22])
+def test_is_not_prime(a):
+    x = from_int(a)
+    z = is_prime(x)
+    assert to_bool(z) == False
