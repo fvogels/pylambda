@@ -32,3 +32,39 @@ def test_iszero_zero():
 
 def test_iszero_szero():
     assert to_bool(is_zero(succ(zero))) == False
+
+
+@pytest.mark.parametrize("a", range(0, 10))
+@pytest.mark.parametrize("b", range(0, 10))
+def test_add(a, b):
+    x = from_int(a)
+    y = from_int(b)
+    z = add(x)(y)
+    assert to_int(z) == a + b
+
+
+@pytest.mark.parametrize("a", range(0, 10))
+@pytest.mark.parametrize("b", range(0, 10))
+def test_sub(a, b):
+    x = from_int(a)
+    y = from_int(b)
+    z = sub(x)(y)
+    assert to_int(z) == max(a - b, 0)
+
+
+@pytest.mark.parametrize("a", range(0, 10))
+@pytest.mark.parametrize("b", range(0, 10))
+def test_mul(a, b):
+    x = from_int(a)
+    y = from_int(b)
+    z = mul(x)(y)
+    assert to_int(z) == a * b
+
+
+@pytest.mark.parametrize("a", range(0, 10))
+@pytest.mark.parametrize("b", range(1, 10))
+def test_mod(a, b):
+    x = from_int(a)
+    y = from_int(b)
+    z = mod(x)(y)
+    assert to_int(z) == a % b
