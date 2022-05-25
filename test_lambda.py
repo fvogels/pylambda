@@ -19,3 +19,8 @@ def test_conj(a, b):
 @pytest.mark.parametrize("b", [True, False])
 def test_disj(a, b):
     assert to_bool(disj(from_bool(a))(from_bool(b))) == (a or b)
+
+
+@pytest.mark.parametrize("a", [True, False])
+def test_neg(a):
+    assert to_bool(neg(from_bool(a))) == (not a)
