@@ -68,3 +68,48 @@ def test_mod(a, b):
     y = from_int(b)
     z = mod(x)(y)
     assert to_int(z) == a % b
+
+
+@pytest.mark.parametrize("a", range(0, 10))
+@pytest.mark.parametrize("b", range(0, 10))
+def test_lt(a, b):
+    x = from_int(a)
+    y = from_int(b)
+    z = lt(x)(y)
+    assert to_bool(z) == (a < b)
+
+
+@pytest.mark.parametrize("a", range(0, 10))
+@pytest.mark.parametrize("b", range(0, 10))
+def test_le(a, b):
+    x = from_int(a)
+    y = from_int(b)
+    z = le(x)(y)
+    assert to_bool(z) == (a <= b)
+
+
+@pytest.mark.parametrize("a", range(0, 10))
+@pytest.mark.parametrize("b", range(0, 10))
+def test_gt(a, b):
+    x = from_int(a)
+    y = from_int(b)
+    z = gt(x)(y)
+    assert to_bool(z) == (a > b)
+
+
+@pytest.mark.parametrize("a", range(0, 10))
+@pytest.mark.parametrize("b", range(0, 10))
+def test_ge(a, b):
+    x = from_int(a)
+    y = from_int(b)
+    z = ge(x)(y)
+    assert to_bool(z) == (a >= b)
+
+
+@pytest.mark.parametrize("a", range(0, 10))
+@pytest.mark.parametrize("b", range(0, 10))
+def test_eq(a, b):
+    x = from_int(a)
+    y = from_int(b)
+    z = eq(x)(y)
+    assert to_bool(z) == (a == b)
