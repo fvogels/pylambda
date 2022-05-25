@@ -24,3 +24,11 @@ def test_disj(a, b):
 @pytest.mark.parametrize("a", [True, False])
 def test_neg(a):
     assert to_bool(neg(from_bool(a))) == (not a)
+
+
+def test_iszero_zero():
+    assert to_bool(is_zero(zero)) == True
+
+
+def test_iszero_szero():
+    assert to_bool(is_zero(succ(zero))) == False
